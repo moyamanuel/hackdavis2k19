@@ -56,17 +56,59 @@
             id="dropdownMenuButton" data-toggle="dropdown">
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Clean-up</a>
-            <a class="dropdown-item" href="#">Refurbishment</a>
-            <a class="dropdown-item" href="#">Gathering</a>
+            <a class="dropdown-item" href="#"><span class="fa fa-map-marker p-2" style="color:red"> </span>
+              Clean-up</a>
+            <a class="dropdown-item" href="#"><span class="fa fa-map-marker p-2" style="color:green">
+              </span>Refurbishment</a>
+            <a class="dropdown-item" href="#"><span class="fa fa-map-marker p-2" style="color:blue">
+              </span>Gathering</a>
           </div>
         </div>
+        <input id="searchTextField" type="text" size="50" placeholder="Event Location" autocomplete="on" runat="server"
+          class="form form-control" />
+        <input type="hidden" id="city2" name="city2" />
+        <input type="hidden" id="cityLat" name="cityLat" />
+        <input type="hidden" id="cityLng" name="cityLng" />
         <textarea class="form-control" cols="10" rows="10" style="text-align:left;height:20vh;min-height:20vh"
           placeholder="Describe your event!"></textarea>
         <button class="pill normal mt-2">Post</button>
       </form>
     </div>
   </div>
+
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAMviClcVbdjxmNHxNM5QHbToXaDzglC7Q"
+    type="text/javascript"></script>
+
+  <script type="text/javascript">
+    let coords = { name: 'Unknown', lat: 0, long: 0 };
+
+    function initialize() {
+
+      var input = document.getElementById('searchTextField');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var place = autocomplete.getPlace();
+        document.getElementById('city2').value = place.name;
+        document.getElementById('cityLat').value = place.geometry.location.lat();
+        document.getElementById('cityLng').value = place.geometry.location.lng();
+        //alert("This function is working!");
+        //alert(place.name);
+        console.log(place);
+
+        // NEED TO SAVE THIS
+        coords = {
+          name: place.address_components[0].long_name,
+          lat: place.geometry.location.lat(),
+          long: place.geometry.location.lng()
+        }
+        // alert(coords.name);
+        // alert(coords.lat);
+        // alert(coords.long);
+
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
 </body>
 
 </html>
