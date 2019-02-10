@@ -64,7 +64,7 @@
 
 
   <div class="pac-card form form-control" id="pac-card"
-    style="background-color:white;padding:1rem;width:100vw;height:10vh;border:none;margin-top:0.02rem">
+    style="background-color:white;padding:1rem;width:100vw;height:10vh;min-height:10vh;border:none;margin-top:0.02rem">
     <!-- <div>
       <div id="type-selector" class="pac-controls">
         <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -84,8 +84,14 @@
         <label for="use-strict-bounds">Strict Bounds</label>
       </div>
     </div> -->
-    <div id="pac-container">
-      <input class="form form-control" id="pac-input" type="text" placeholder="Enter a location">
+    <div id="pac-container" style="display:none">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text fa fa-search p-2"></span>
+        </div>
+        <input class="form form-control w-75" id="pac-input" type="text" placeholder="Enter a location"
+          style="text-align:center;display:inline-block">
+      </div>
     </div>
   </div>
   <div id="map"></div>
@@ -114,10 +120,12 @@
 
 
 
+      var container = document.getElementById('pac-container');
       var card = document.getElementById('pac-card');
       var input = document.getElementById('pac-input');
       var types = document.getElementById('type-selector');
       var strictBounds = document.getElementById('strict-bounds-selector');
+
 
       map.controls[google.maps.ControlPosition.TOP].push(card);
 
@@ -127,7 +135,7 @@
       // so that the autocomplete requests use the current map bounds for the
       // bounds option in the request.
       autocomplete.bindTo('bounds', map);
-
+      container.style.display = 'block';
       // Set the data fields to return when the user selects a place.
       autocomplete.setFields(
         ['address_components', 'geometry', 'icon', 'name']);
@@ -176,25 +184,49 @@
         infowindow.open(map, marker);
       });
 
+      var customStyled = [
+        {
+          featureType: "all",
+          elementType: "labels",
+          stylers: [
+            { visibility: "off" }
+          ]
+        }, {
+          "featureType": "poi.park",
+          "elementType": "labels",
+          "stylers": [
+            { "visibility": "on" }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "labels",
+          "stylers": [
+            { "visibility": "on" }
+          ]
+        }
+      ];//(array shown above)
+      map.set('styles', customStyled);
+
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
-      function setupClickListener(id, types) {
-        var radioButton = document.getElementById(id);
-        radioButton.addEventListener('click', function () {
-          autocomplete.setTypes(types);
-        });
-      }
+      // function setupClickListener(id, types) {
+      //   var radioButton = document.getElementById(id);
+      //   radioButton.addEventListener('click', function () {
+      //     autocomplete.setTypes(types);
+      //   });
+      // }
 
-      setupClickListener('changetype-all', []);
-      setupClickListener('changetype-address', ['address']);
-      setupClickListener('changetype-establishment', ['establishment']);
-      setupClickListener('changetype-geocode', ['geocode']);
+      // setupClickListener('changetype-all', []);
+      // setupClickListener('changetype-address', ['address']);
+      // setupClickListener('changetype-establishment', ['establishment']);
+      // setupClickListener('changetype-geocode', ['geocode']);
 
-      document.getElementById('use-strict-bounds')
-        .addEventListener('click', function () {
-          console.log('Checkbox clicked! New state=' + this.checked);
-          autocomplete.setOptions({ strictBounds: this.checked });
-        });
+      // document.getElementById('use-strict-bounds')
+      //   .addEventListener('click', function () {
+      //     console.log('Checkbox clicked! New state=' + this.checked);
+      //     autocomplete.setOptions({ strictBounds: this.checked });
+      //   });
     }
   </script>
   <script

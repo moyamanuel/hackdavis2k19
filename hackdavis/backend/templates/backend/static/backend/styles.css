@@ -16,8 +16,8 @@ body {
 }
 
 body nav {
-  -webkit-box-shadow: 0 0 2rem black;
-          box-shadow: 0 0 2rem black;
+  -webkit-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.8);
 }
 
 @media (min-width: 980px) {
