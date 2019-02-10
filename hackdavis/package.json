@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/moyamanuel/hackdavis2k19/issues"
   },
-  "homepage": "https://github.com/moyamanuel/hackdavis2k19#readme",
-  "dependencies": {
-    "bootstrap": "^4.2.1"
-  }
+  "homepage": "https://github.com/moyamanuel/hackdavis2k19#readme"
 }

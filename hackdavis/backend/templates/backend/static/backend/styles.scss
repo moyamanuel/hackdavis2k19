@@ -1,0 +1,102 @@
+$green: rgb(29, 175, 29);
+@mixin easeOut{
+  transition:all 0.3s ease-out;
+}
+
+* {
+  font-family: 'Roboto Slab', serif;
+  text-align:center;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+
+body{
+  margin:0;
+  padding:0;
+  height: 100%;
+  overflow:hidden;
+
+}
+
+@media (min-width: 980px) {
+.split {
+  display:grid;
+  grid-template-columns: auto auto;
+    .split-left{
+      background:url(../../../../../images/frontimg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height:92vh;
+      min-width: 500px;
+    }
+    .split-right{
+      background-color:#fff;
+      float:right;
+
+    }
+  }
+}
+  .grid{
+    display:grid;
+    grid-template-areas:
+    'title'
+    'create'
+    'google'
+    'facebook'
+    'email'
+    'pass';
+    justify-items: center;
+  }
+
+  hr {
+    border: 0;
+    display:block;
+    width: 95%; 
+
+    background-color:$green;
+    height: 5px;
+    border-radius:20px;
+  }
+  .pill {
+    border-radius:50px;
+    border:none;
+    padding:0.4rem;
+    color:white;
+    min-width:242px;
+    max-height:35px;
+    user-select:none;
+    &.normal{
+      background-color:$green;
+    border-radius:10px;
+
+      &:hover{
+        @include easeOut;
+        background-color:white;
+        border:1px solid $green;
+        padding:0.33rem;
+        color:$green;
+      }
+    }
+    &.google{
+      grid-area:'google';
+      background-color: rgb(214, 76, 76);
+    }
+    &.facebook{
+      grid-area:'facebook';
+      background-color: rgb(76, 85, 214);
+    }
+  }
+
+  .input {
+    @include easeOut;
+    border-left:none;
+    outline:none !important;
+    &:focus{
+      @include easeOut;
+      border-left:10px solid $green;
+      background-color:darken(#fff,10)
+    }
+  }

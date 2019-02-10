@@ -1,1 +1,106 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+* {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 980px) {
+  .split {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+  }
+  .split .split-left {
+    background: url(../../../../../images/frontimg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 92vh;
+    min-width: 500px;
+  }
+  .split .split-right {
+    background-color: #fff;
+    float: right;
+  }
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'title' 'create' 'google' 'facebook' 'email' 'pass';
+  justify-items: center;
+}
+
+hr {
+  border: 0;
+  display: block;
+  width: 95%;
+  background-color: #1daf1d;
+  height: 5px;
+  border-radius: 20px;
+}
+
+.pill {
+  border-radius: 50px;
+  border: none;
+  padding: 0.4rem;
+  color: white;
+  min-width: 242px;
+  max-height: 35px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.pill.normal {
+  background-color: #1daf1d;
+  border-radius: 10px;
+}
+
+.pill.normal:hover {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background-color: white;
+  border: 1px solid #1daf1d;
+  padding: 0.33rem;
+  color: #1daf1d;
+}
+
+.pill.google {
+  grid-area: 'google';
+  background-color: #d64c4c;
+}
+
+.pill.facebook {
+  grid-area: 'facebook';
+  background-color: #4c55d6;
+}
+
+.input {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-left: none;
+  outline: none !important;
+}
+
+.input:focus {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-left: 10px solid #1daf1d;
+  background-color: #e6e6e6;
+}
+/*# sourceMappingURL=styles.css.map */
