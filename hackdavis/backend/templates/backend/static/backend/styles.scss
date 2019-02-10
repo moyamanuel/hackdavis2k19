@@ -12,11 +12,23 @@ $green: rgb(29, 175, 29);
   }
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+body {
+  -ms-overflow-style:none;
+}
+
 body{
   margin:0;
   padding:0;
   height: 100%;
-  overflow:hidden;
+
 
   nav{
     box-shadow:0 0 2rem black;
@@ -50,7 +62,7 @@ body{
     
     .split-right{
       @include easeOut;
-    
+      overflow-y:scroll !important;
       background-color:#fff;
       float:right;
 
@@ -78,17 +90,19 @@ body{
     height: 5px;
     border-radius:20px;
   }
+
   .pill {
     border-radius:50px;
     border:none;
     padding:0.4rem;
     color:white;
-    min-width:242px;
     max-height:35px;
     user-select:none;
     &.normal{
       background-color:$green;
     border-radius:10px;
+    min-width:180px !important;
+
 
       &:hover{
         @include easeOut;
@@ -101,10 +115,14 @@ body{
     &.google{
       grid-area:'google';
       background-color: rgb(214, 76, 76);
+       min-width:242px !important;
+
     }
     &.facebook{
       grid-area:'facebook';
       background-color: rgb(76, 85, 214);
+       min-width:242px;
+
     }
   }
 
@@ -118,9 +136,52 @@ body{
     }
   }
 
-  input[type='file'] {
-    color: transparent;
-    opacity:0;
-    width:128px;
-    height:128px;
+  .signupImg {
+    max-width:64px;
+    max-height:64px;
+    input[type='file']{
+      opacity:1;
+      position:relative;
+      margin:0;
+      max-width:64px;
+    }
+  }
+
+  .signup{
+    display:grid;
+    padding:10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    'img .'
+    'first last'
+    'email email'
+    'password confirm'
+    'terms terms'
+    'submit submit';
+
+    grid-gap:10px;
+    .signupImg{
+      grid-area: img;
+    }
+     .signupFirst{
+       grid-area: first;
+     }
+     .signupLast{
+       grid-area: last;
+     }
+     .signupEmail{
+      grid-area: email;
+    }
+     .signupPass{
+       grid-area: password;
+     }
+     .signupConfirm{
+       grid-area: confirm;
+     }
+     .signupTerms{
+       grid-area: terms;
+     }
+     .signupSubmit{
+       grid-area: submit;
+     }
   }

@@ -9,11 +9,22 @@
   outline: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
 }
 
 body nav {
@@ -51,6 +62,7 @@ body nav {
   .split .split-right {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
+    overflow-y: scroll !important;
     background-color: #fff;
     float: right;
   }
@@ -77,7 +89,6 @@ hr {
   border: none;
   padding: 0.4rem;
   color: white;
-  min-width: 242px;
   max-height: 35px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -88,6 +99,7 @@ hr {
 .pill.normal {
   background-color: #1daf1d;
   border-radius: 10px;
+  min-width: 180px !important;
 }
 
 .pill.normal:hover {
@@ -102,11 +114,13 @@ hr {
 .pill.google {
   grid-area: 'google';
   background-color: #d64c4c;
+  min-width: 242px !important;
 }
 
 .pill.facebook {
   grid-area: 'facebook';
   background-color: #4c55d6;
+  min-width: 242px;
 }
 
 .input {
@@ -122,10 +136,76 @@ hr {
   background-color: #e6e6e6;
 }
 
-input[type='file'] {
-  color: transparent;
-  opacity: 0;
-  width: 128px;
-  height: 128px;
+.signupImg {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.signupImg input[type='file'] {
+  opacity: 1;
+  position: relative;
+  margin: 0;
+  max-width: 64px;
+}
+
+.signup {
+  display: -ms-grid;
+  display: grid;
+  padding: 10px;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'img .' 'first last' 'email email' 'password confirm' 'terms terms' 'submit submit';
+  grid-gap: 10px;
+}
+
+.signup .signupImg {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: img;
+}
+
+.signup .signupFirst {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: first;
+}
+
+.signup .signupLast {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: last;
+}
+
+.signup .signupEmail {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: email;
+}
+
+.signup .signupPass {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: password;
+}
+
+.signup .signupConfirm {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: confirm;
+}
+
+.signup .signupTerms {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: terms;
+}
+
+.signup .signupSubmit {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: submit;
 }
 /*# sourceMappingURL=styles.css.map */
