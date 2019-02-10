@@ -61,16 +61,17 @@
           Facebook</span></button>
       <br><label class="mt-3">- or -</label>
       <h2>Sign-up</h2>
-      <form class="signup">
+      <form class="signup" method="POST">
+          {% csrf_token %}
         <!-- <div class="signupImg" style="background-color:black">
           <img src="" alt="Your profile pic" />
           <input class="mb-4" type="file" />
         </div> -->
-        <input class="form form-control input" signupFirst" type="text" placeholder="First Name" />
-        <input class="form form-control input" signupLast" type="text" placeholder="Last Name" />
-        <input class="form form-control input" signupEmail" type="text" placeholder="Email" />
-        <input class="form form-control input" signupPass" type="password" placeholder="Password" />
-        <input class="form form-control input" signupConfirm" type="password" placeholder="Confirm Password" />
+        <input class="form form-control input signupFirst" name="first_name" type="text" placeholder="First Name" />
+        <input class="form form-control input signupLast" name="last_name" type="text" placeholder="Last Name" />
+        <input class="form form-control input signupEmail" name="email" type="text" placeholder="Email" />
+        <input class="form form-control input signupPass" name="password" type="password" placeholder="Password" />
+        <input class="form form-control input signupConfirm" type="password" placeholder="Confirm Password" />
         <button class="signupSubmit form-check-label pill normal mt-2">Create Account</button>
         <label signupTerms" style="font-size:12px;">
           By clicking on the "Create Account"
