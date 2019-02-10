@@ -47,6 +47,12 @@ body nav {
     background-size: cover;
     background-position: center;
   }
+  .split .split-left.img3 {
+    background: url(../../../../../images/event.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
   .split .split-right {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
