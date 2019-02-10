@@ -125,13 +125,13 @@ button {
 .input {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  outline: none !important;
 }
 
 .input:focus {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   border-right: 10px solid #1daf1d;
+  padding: 7px;
   background-color: #e6e6e6;
 }
 

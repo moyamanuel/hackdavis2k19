@@ -127,10 +127,10 @@ body{
 
   .input {
     @include easeOut;
-    outline:none !important;
     &:focus{
       @include easeOut;
       border-right:10px solid $green;
+      padding: 7px;
       background-color:darken(#fff,10)
     }
   }
