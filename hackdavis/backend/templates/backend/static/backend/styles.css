@@ -18,12 +18,16 @@ body {
 
 @media (min-width: 980px) {
   .split {
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: auto auto;
         grid-template-columns: auto auto;
   }
   .split .split-left {
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
     background: url(../../../../../images/frontimg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,6 +36,8 @@ body {
     min-width: 500px;
   }
   .split .split-right {
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
     background-color: #fff;
     float: right;
   }
