@@ -12,18 +12,6 @@ $green: rgb(29, 175, 29);
   }
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-body {
-  -ms-overflow-style:none;
-}
-
 body{
   margin:0;
   padding:0;
@@ -44,7 +32,7 @@ body{
     .split-left{
       @include easeOut;
 
-      min-height:92vh;
+      min-height:91vh;
       min-width: 500px;
       &.img1{
       background:url(../../../../../images/frontimg.jpg);
@@ -62,7 +50,6 @@ body{
     
     .split-right{
       @include easeOut;
-      overflow-y:scroll !important;
       background-color:#fff;
       float:right;
 
@@ -150,19 +137,17 @@ body{
   .signup{
     display:grid;
     padding:10px;
-    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-    'img .'
-    'first last'
+    'first first'
+    'last last'
     'email email'
     'password confirm'
     'terms terms'
     'submit submit';
+    grid-template-columns: repeat(2, 1fr);
 
     grid-gap:10px;
-    .signupImg{
-      grid-area: img;
-    }
+
      .signupFirst{
        grid-area: first;
      }

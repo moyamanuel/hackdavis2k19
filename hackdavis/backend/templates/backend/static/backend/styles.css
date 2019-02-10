@@ -9,18 +9,6 @@
   outline: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-body {
-  -ms-overflow-style: none;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -44,7 +32,7 @@ body nav {
   .split .split-left {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    min-height: 92vh;
+    min-height: 91vh;
     min-width: 500px;
   }
   .split .split-left.img1 {
@@ -62,7 +50,6 @@ body nav {
   .split .split-right {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    overflow-y: scroll !important;
     background-color: #fff;
     float: right;
   }
@@ -152,27 +139,23 @@ hr {
   display: -ms-grid;
   display: grid;
   padding: 10px;
+      grid-template-areas: 'first first' 'last last' 'email email' 'password confirm' 'terms terms' 'submit submit';
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: 'img .' 'first last' 'email email' 'password confirm' 'terms terms' 'submit submit';
   grid-gap: 10px;
 }
 
-.signup .signupImg {
+.signup .signupFirst {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  grid-area: img;
-}
-
-.signup .signupFirst {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: first;
 }
 
 .signup .signupLast {
   -ms-grid-row: 2;
-  -ms-grid-column: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: last;
 }
 
