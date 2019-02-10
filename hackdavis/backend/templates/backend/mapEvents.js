@@ -1,1 +1,1 @@
-const eventList = document.getElementById(eventList);
+// const eventList = document.getElementById(eventList);
