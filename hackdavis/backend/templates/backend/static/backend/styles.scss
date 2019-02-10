@@ -84,6 +84,10 @@ body{
     border-radius:20px;
   }
 
+  button {
+    cursor:pointer;
+  }
+
   .pill {
     border-radius:50px;
     border:none;
@@ -109,13 +113,15 @@ body{
       grid-area:'google';
       background-color: rgb(214, 76, 76);
        min-width:242px !important;
+      margin-right:0.5rem;
+
 
     }
     &.facebook{
       grid-area:'facebook';
       background-color: rgb(76, 85, 214);
        min-width:242px;
-
+      margin-left:0.5rem;
     }
   }
 
@@ -124,7 +130,7 @@ body{
     outline:none !important;
     &:focus{
       @include easeOut;
-      border-left:10px solid $green;
+      border-right:10px solid $green;
       background-color:darken(#fff,10)
     }
   }
@@ -149,9 +155,8 @@ body{
     'email email'
     'password confirm'
     'terms terms'
-    'submit submit';
-    grid-template-columns: repeat(2, 1fr);
-
+    'submit submit'
+    '. already';
     grid-gap:10px;
 
      .signupFirst{
@@ -175,4 +180,34 @@ body{
      .signupSubmit{
        grid-area: submit;
      }
+     .already{
+       grid-area:already;
+       font-size:14px;
+     }
+  }
+
+  #eventList{
+    @include easeOut;
+    width:20vw;
+    min-width:260px;
+
+    height:73%;
+    display:block;
+    background-color:white;
+    z-index:1;
+    transform: translate3d(100%,-5%,0);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow:0 0 1rem black;
+    overflow-y:scroll;
+    
+    @media (min-width: 980px) {
+      min-width:420px;
+    }
+    
+    &.active {
+      @include easeOut;
+    transform: translate3d(0,-5%,0);
+
+    }
   }

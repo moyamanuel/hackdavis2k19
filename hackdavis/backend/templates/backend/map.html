@@ -84,16 +84,28 @@
         <label for="use-strict-bounds">Strict Bounds</label>
       </div>
     </div> -->
-    <div id="pac-container" style="display:none">
+    <div id="pac-container" style="display:none;visibility:hidden;z-index:5">
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text fa fa-search p-2"></span>
+          <button class="btn btn-outline-dark input-group-text fa fa-search p-2"></button>
         </div>
         <input class="form form-control w-75" id="pac-input" type="text" placeholder="Enter a location"
           style="text-align:center;display:inline-block">
+        <!-- <div class="input-group-append">
+          <button class="btn btn-outline-dark input-group-text fa fa-sort p-2"></button>
+        </div> -->
+        <div class="input-group-append">
+          <button class="btn btn-outline-dark input-group-text fa fa-filter p-2"></button>
+        </div>
+
       </div>
     </div>
   </div>
+
+  <!-- <button class="btn btn-outline-dark bg-light fa fa-map-marker"></button> -->
+  <button id="showList" class="btn btn-outline-dark bg-light fa fa-list"
+    style="display:none;visibility:hidden"></button>
+
   <div id="map"></div>
   <div id="infowindow-content">
     <img src="" width="16" height="16" id="place-icon">
@@ -101,10 +113,24 @@
     <span id="place-address"></span>
   </div>
 
+  <div id="eventList">
+    <h4 class="text-success">events</h4>
+    <hr style="height:1px">
+    <!-- Add Current events from backend via JS DOM Manipulation. -->
+  </div>
+
   <script>
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    let markers = [
+      ['Bondi Beach', -33.890542, 151.274856, 4],
+      ['Coogee Beach', -33.923036, 151.259052, 5],
+      ['Cronulla Beach', -34.028249, 151.157507, 3],
+      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+      ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
 
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -116,6 +142,25 @@
         streetViewControl: false,
         fullscreenControl: true
       });
+
+      markers.forEach(marker => {
+        var marker = new google.maps.Marker({
+          position: { lat: marker[1], lng: marker[2] },
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: marker[0],
+          icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        });
+        marker.addListener('click', toggleBounce);
+      });
+
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
 
 
 
@@ -129,6 +174,25 @@
 
       map.controls[google.maps.ControlPosition.TOP].push(card);
 
+      var showList = document.getElementById('showList');
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(showList);
+      showList.style.display = 'block';
+      showList.addEventListener('click', openList);
+
+      var eventList = document.getElementById('eventList');
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(eventList);
+
+
+      function openList() {
+        console.log("test");
+
+        if (eventList.classList.contains('active'))
+          eventList.classList.remove('active');
+        else
+          eventList.classList.add('active');
+        console.log(eventList.classList);
+      }
+
       var autocomplete = new google.maps.places.Autocomplete(input);
 
       // Bind the map's bounds (viewport) property to the autocomplete object,
@@ -136,6 +200,7 @@
       // bounds option in the request.
       autocomplete.bindTo('bounds', map);
       container.style.display = 'block';
+      container.style.visibility = 'visible';
       // Set the data fields to return when the user selects a place.
       autocomplete.setFields(
         ['address_components', 'geometry', 'icon', 'name']);
