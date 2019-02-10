@@ -135,6 +135,16 @@ button {
   background-color: #e6e6e6;
 }
 
+.signup {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+}
+
+.signup .input {
+  min-width: 50vw;
+}
+
 .signupImg {
   max-width: 64px;
   max-height: 64px;
@@ -145,68 +155,6 @@ button {
   position: relative;
   margin: 0;
   max-width: 64px;
-}
-
-.signup {
-  display: -ms-grid;
-  display: grid;
-  padding: 10px;
-      grid-template-areas: 'first first' 'last last' 'email email' 'password confirm' 'terms terms' 'submit submit' '. already';
-  grid-gap: 10px;
-}
-
-.signup .signupFirst {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: first;
-}
-
-.signup .signupLast {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: last;
-}
-
-.signup .signupEmail {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: email;
-}
-
-.signup .signupPass {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  grid-area: password;
-}
-
-.signup .signupConfirm {
-  -ms-grid-row: 4;
-  -ms-grid-column: 2;
-  grid-area: confirm;
-}
-
-.signup .signupTerms {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: terms;
-}
-
-.signup .signupSubmit {
-  -ms-grid-row: 6;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: submit;
-}
-
-.signup .already {
-  -ms-grid-row: 7;
-  -ms-grid-column: 2;
-  grid-area: already;
-  font-size: 14px;
 }
 
 #eventList {

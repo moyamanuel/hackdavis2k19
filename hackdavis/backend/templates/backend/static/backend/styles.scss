@@ -135,6 +135,15 @@ body{
     }
   }
 
+  .signup {
+    display:grid;
+    grid-gap: 10px;
+
+    .input {
+      min-width: 50vw;
+    }
+  }
+
   .signupImg {
     max-width:64px;
     max-height:64px;
@@ -146,45 +155,45 @@ body{
     }
   }
 
-  .signup{
-    display:grid;
-    padding:10px;
-    grid-template-areas:
-    'first first'
-    'last last'
-    'email email'
-    'password confirm'
-    'terms terms'
-    'submit submit'
-    '. already';
-    grid-gap:10px;
+  // .signup{
+  //   display:grid;
+  //   padding:10px;
+  //   grid-template-areas:
+  //   'first first'
+  //   'last last'
+  //   'email email'
+  //   'password confirm'
+  //   'terms terms'
+  //   'submit submit'
+  //   '. already';
+  //   grid-gap:10px;
 
-     .signupFirst{
-       grid-area: first;
-     }
-     .signupLast{
-       grid-area: last;
-     }
-     .signupEmail{
-      grid-area: email;
-    }
-     .signupPass{
-       grid-area: password;
-     }
-     .signupConfirm{
-       grid-area: confirm;
-     }
-     .signupTerms{
-       grid-area: terms;
-     }
-     .signupSubmit{
-       grid-area: submit;
-     }
-     .already{
-       grid-area:already;
-       font-size:14px;
-     }
-  }
+  //    .signupFirst{
+  //      grid-area: first;
+  //    }
+  //    .signupLast{
+  //      grid-area: last;
+  //    }
+  //    .signupEmail{
+  //     grid-area: email;
+  //   }
+  //    .signupPass{
+  //      grid-area: password;
+  //    }
+  //    .signupConfirm{
+  //      grid-area: confirm;
+  //    }
+  //    .signupTerms{
+  //      grid-area: terms;
+  //    }
+  //    .signupSubmit{
+  //      grid-area: submit;
+  //    }
+  //    .already{
+  //      grid-area:already;
+  //      font-size:14px;
+  //    }
+  // }
 
   #eventList{
     @include easeOut;
