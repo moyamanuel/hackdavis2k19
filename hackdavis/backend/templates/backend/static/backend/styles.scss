@@ -18,6 +18,9 @@ body{
   height: 100%;
   overflow:hidden;
 
+  nav{
+    box-shadow:0 0 2rem black;
+  }
 }
 
 @media (min-width: 980px) {
@@ -29,12 +32,20 @@ body{
     .split-left{
       @include easeOut;
 
+      min-height:92vh;
+      min-width: 500px;
+      &.img1{
       background:url(../../../../../images/frontimg.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      min-height:92vh;
-      min-width: 500px;
+      }
+      &.img2{
+      background:url(../../../../../images/accomplish.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      }
     }
     
     .split-right{
@@ -99,11 +110,17 @@ body{
 
   .input {
     @include easeOut;
-    border-left:none;
     outline:none !important;
     &:focus{
       @include easeOut;
       border-left:10px solid $green;
       background-color:darken(#fff,10)
     }
+  }
+
+  input[type='file'] {
+    color: transparent;
+    opacity:0;
+    width:128px;
+    height:128px;
   }
