@@ -21,11 +21,9 @@ def map(request):
     return render(request, "backend/map.html")
 
 def event(request):
+    if request.method == "POST":
+        new_event = Event(
+            event_description = request.POST.get('event_description')
+        )
+        new_event.save()
     return render(request, "backend/events.html")
-        # new_event = Event(
-        #     image_link= request.POST.get('image_link'),
-        #     event_address= request.POST.get('event_address'),
-        #     importance_rank= request.POST.get('importance_name'),
-        #     event_description=request.POST.get('event_description')
-        # )
-        # new_event.save()
