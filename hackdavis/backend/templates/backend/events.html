@@ -50,7 +50,8 @@
       <h1 class="mt-2">Events</h1>
 
       <h4 class="mt-2 text-success">make an impact on your community</h4>
-      <form>
+      <form method="POST">
+          {% csrf_token %}
         <div class="dropdown">
           <button class="fa fa-tags btn btn-secondary mb-2 mt-2 float-left dropdown-toggle" type="button"
             id="dropdownMenuButton" data-toggle="dropdown">
@@ -69,7 +70,7 @@
         <input type="hidden" id="city2" name="city2" />
         <input type="hidden" id="cityLat" name="cityLat" />
         <input type="hidden" id="cityLng" name="cityLng" />
-        <textarea class="form-control" cols="10" rows="10" style="text-align:left;height:20vh;min-height:20vh"
+        <textarea name="event_description" class="form-control" cols="10" rows="10" style="text-align:left;height:20vh;min-height:20vh"
           placeholder="Describe your event!"></textarea>
         <button class="pill normal mt-2">Post</button>
       </form>
